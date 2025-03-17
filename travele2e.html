@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!--
+  Travel Analytics - Nha's Portfolio
+-->
+<html>
+  <head>
+    <title>Travel Analytics - Nha's Portfolio</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo"
+          ><strong>Data Analyst Portfolio</strong>
+          <span>by Nha D Alvarado</span></a
+        >
+        <nav>
+          <a href="#menu">Menu</a>
+        </nav>
+      </header>
+
+      <!-- Menu -->
+      <nav id="menu">
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="actions stacked">
+          <li>
+            <a href="#projects" class="button primary fit">View Projects</a>
+          </li>
+          <li><a href="#contact" class="button fit">Contact Me</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Project Content -->
+        <section id="project-content">
+          <div class="inner">
+            <header class="major">
+              <h1>Travel Analytics</h1>
+            </header>
+            <h2>Project Overview</h2>
+            <p>
+              This project focuses on analyzing the
+              <strong>Argo Datathon 2019 Travel Dataset</strong> from Kaggle to
+              uncover insights that can improve travel recommendations and
+              services. By leveraging data, I aim to answer critical business
+              questions and enhance the overall travel experience.
+            </p>
+
+            <h2>Why I Chose This Project</h2>
+            <p>
+              As a passionate traveler, I always seek new experiences and
+              insights into customer preferences. Travel is more than just
+              visiting places; it’s about understanding how to optimize services
+              and enhance user experiences. This inspired me to analyze the Argo
+              Datathon 2019 dataset to uncover actionable insights that can
+              improve travel recommendations and services.
+            </p>
+            <p>
+              The key business question I aimed to answer was:
+              <strong
+                >"How can Argo offer the best travel experience for its
+                customers?"</strong
+              >
+              By analyzing travel patterns, user behavior, and service
+              preferences, I provided data-driven recommendations to improve
+              customer satisfaction and engagement.
+            </p>
+
+            <h2>What I Learned</h2>
+            <p>Through this project, I gained valuable experience in:</p>
+            <h3>Data Warehousing</h3>
+            <ul>
+              <li>
+                Extracting raw travel data from Kaggle and transforming it by
+                handling missing values, standardizing formats, and enriching it
+                with calculated fields.
+              </li>
+              <li>
+                Loading (ETL process) the refined data into a structured format
+                for analysis.
+              </li>
+            </ul>
+            <div class="box alt">
+              <div class="row gtr-50 gtr-uniform">
+                <div class="col-12">
+                  <div class="image-large">
+                    <span class="image fit">
+                      <img
+                        src="images/data_architecture.png"
+                        alt="Data Architecture"
+                      />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3>Reports</h3>
+            <p>
+              After cleaning the data and performing advanced analytics, I
+              created three key reports to provide actionable insights for
+              stakeholders:
+            </p>
+            <ul>
+              <li>
+                <strong>Users Report:</strong>
+                <ul>
+                  <li>Segments users into VIP, Regular, and New categories.</li>
+                  <li>
+                    Aggregates metrics: total bookings, purchases, and lifespan.
+                  </li>
+                  <li>
+                    Calculates KPIs: recency, average order value, and monthly
+                    spend.
+                  </li>
+                </ul>
+              </li>
+              <!-- Users Report -->
+              <div class="box alt">
+                <div class="row gtr-50 gtr-uniform">
+                  <div class="col-12">
+                    <div class="image-large">
+                      <span class="image fit">
+                        <img
+                          src="images/dashboards/travel_user_reports.png"
+                          alt="Users Report"
+                        />
+                      </span>
+                    </div>
+                    <p>
+                      For a detailed look at the code and analysis process,
+                      visit my GitHub repository:
+                    </p>
+                    <ul class="actions">
+                      <li>
+                        <a
+                          href="https://github.com/NhaDAlvarado/Data_Analysis-Portfolio/blob/main/Travel_E2E/users_report.sql"
+                          class="button primary"
+                          >View on GitHub</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <li>
+                <strong>Flights Report:</strong>
+                <ul>
+                  <li>Analyzes flight types, routes, and booking trends.</li>
+                  <li>
+                    Aggregates metrics: total bookings, sales, and unique
+                    customers.
+                  </li>
+                  <li>
+                    Calculates KPIs: recency, average order revenue, and monthly
+                    revenue.
+                  </li>
+                </ul>
+              </li>
+              <!-- Flights Report -->
+              <div class="box alt">
+                <div class="row gtr-50 gtr-uniform">
+                  <div class="col-12">
+                    <div class="image-large">
+                      <span class="image fit">
+                        <img
+                          src="images/dashboards/travel_flights_reports.png"
+                          alt="Flights Report"
+                        />
+                      </span>
+                    </div>
+                    <p>
+                      For a detailed look at the code and analysis process,
+                      visit my GitHub repository:
+                    </p>
+                    <ul class="actions">
+                      <li>
+                        <a
+                          href="https://github.com/NhaDAlvarado/Data_Analysis-Portfolio/blob/main/Travel_E2E/flights_report.sql"
+                          class="button primary"
+                          >View on GitHub</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <li>
+                <strong>Hotels Report:</strong>
+                <ul>
+                  <li>
+                    Evaluates hotel bookings, ratings, and location preferences.
+                  </li>
+                  <li>
+                    Aggregates metrics: total bookings, sales, and retention
+                    rate.
+                  </li>
+                  <li>
+                    Calculates KPIs: recency, average order revenue, and monthly
+                    revenue.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!-- Hotels Report -->
+            <div class="box alt">
+              <div class="row gtr-50 gtr-uniform">
+                <div class="col-12">
+                  <div class="image-large">
+                    <span class="image fit">
+                      <img
+                        src="images/dashboards/travel_hotels_reports.png"
+                        alt="Hotels Report"
+                      />
+                    </span>
+                  </div>
+                  <p>
+                    For a detailed look at the code and analysis process, visit
+                    my GitHub repository:
+                  </p>
+                  <ul class="actions">
+                    <li>
+                      <a
+                        href="https://github.com/NhaDAlvarado/Data_Analysis-Portfolio/blob/main/Travel_E2E/hotels_report.sql"
+                        class="button primary"
+                        >View on GitHub</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              These reports were instrumental in providing stakeholders with a
+              clear view of customer behavior, travel trends, and service
+              performance. By leveraging these insights, Argo can make
+              data-driven decisions to improve travel recommendations and
+              enhance the overall user experience.
+            </p>
+
+            <h2>How the Dashboard Looks</h2>
+            <div class="box alt">
+              <div class="row gtr-50 gtr-uniform">
+                <div class="col-12">
+                  <div class="image-large">
+                    <span class="image fit">
+                      <img
+                        src="images/dashboards/Travel_Analytics.png"
+                        alt="Travel Analytics Dashboard"
+                      />
+                    </span>
+                  </div>
+                  <p>
+                    Explore the full interactive Travel Analytics dashboard on
+                    Tableau Public:
+                  </p>
+                  <ul class="actions">
+                    <li>
+                      <a
+                        href="https://public.tableau.com/app/profile/nha.alvarado/viz/TravelAnalytics_16956789012340/TravelDashboard"
+                        class="button primary"
+                        >View on Tableau</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <h2>Dataset</h2>
+            <p>
+              The dataset used for this project is the
+              <strong>Argo Datathon 2019 Travel Dataset</strong>, which can be
+              found on Kaggle:
+            </p>
+            <ul class="actions">
+              <li>
+                <a
+                  href="https://www.kaggle.com/datasets/argo-datathon-2019"
+                  class="button primary"
+                  >Argo Datathon 2019 Dataset</a
+                >
+              </li>
+            </ul>
+            <p>The dataset includes information such as:</p>
+            <ul>
+              <li>Customer travel patterns and preferences.</li>
+              <li>Booking trends, user ratings, and travel frequency.</li>
+              <li>Pricing strategies and affordability.</li>
+              <li>Geographic trends and travel hotspots.</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>
+              This project reinforced my skills in data analytics, storytelling
+              through visualization, and using Tableau to transform raw data
+              into actionable insights. By analyzing the Argo Datathon 2019
+              dataset, I provided insights that can help travel platforms like
+              Argo offer the best possible experience for their customers.
+              Whether it's optimizing travel routes, recommending destinations,
+              or enhancing customer satisfaction, a data-driven approach ensures
+              a seamless and enjoyable journey.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="inner">
+          <ul class="icons">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/nhadalvarado/"
+                class="icon brands alt fa-linkedin-in"
+                ><span class="label">LinkedIn</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/NhaDAlvarado"
+                class="icon brands alt fa-github"
+                ><span class="label">GitHub</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://public.tableau.com/app/profile/nha.alvarado/vizzes"
+                class="icon solid alt fa-chart-bar"
+                ><span class="label">Tableau</span></a
+              >
+            </li>
+          </ul>
+          <ul class="copyright">
+            <li>&copy; Nha D Alvarado</li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
