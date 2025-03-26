@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<!--
+  Medicare Inpatient Charges Analysis - Nha's Portfolio
+-->
+<html>
+  <head>
+    <title>Medicare Analytics - Nha's Portfolio</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo"
+          ><strong>Data Analyst Portfolio</strong>
+          <span>by Nha D Alvarado</span></a
+        >
+        <nav>
+          <a href="#menu">Menu</a>
+        </nav>
+      </header>
+
+      <!-- Menu -->
+      <nav id="menu">
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="actions stacked">
+          <li>
+            <a href="#projects" class="button primary fit">View Projects</a>
+          </li>
+          <li><a href="#contact" class="button fit">Contact Me</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Project Content -->
+        <section id="project-content">
+          <div class="inner">
+            <header class="major">
+              <h1>Medicare Inpatient Charges Analysis</h1>
+            </header>
+            <h2>Project Overview</h2>
+            <p>
+              This project focuses on analyzing the
+              <strong>Medicare Inpatient Charges</strong> dataset, which is part
+              of the <strong>Google Cloud Public Datasets</strong> under the
+              healthcare section. The dataset contains detailed information
+              about hospital charges, Medicare payments, and provider details
+              for inpatient services across the United States.
+            </p>
+            <p>
+              The goal is to explore and analyze healthcare data to uncover
+              insights that can improve hospital performance, optimize Medicare
+              payments, and inform policy decisions. By leveraging
+              <strong>Google BigQuery</strong>, I handle this large dataset
+              efficiently to perform advanced analytics on healthcare costs and
+              provider performance.
+            </p>
+
+            <h2>Why I Chose This Project</h2>
+            <p>I selected this project for several key reasons:</p>
+            <ul>
+              <li>
+                <strong>Interest in Healthcare Analytics:</strong> I'm
+                passionate about using data to improve patient outcomes and
+                healthcare efficiency.
+              </li>
+              <li>
+                <strong>Big Data Challenge:</strong> The dataset's size made it
+                perfect for practicing with Google BigQuery's scalable
+                processing capabilities.
+              </li>
+              <li>
+                <strong>Real-World Impact:</strong> The analysis can directly
+                help hospitals optimize operations and policymakers make
+                informed decisions.
+              </li>
+              <li>
+                <strong>Skill Development:</strong> This project allowed me to
+                enhance my SQL, data visualization, and healthcare analytics
+                skills.
+              </li>
+            </ul>
+
+            <h2>Key Questions Explored</h2>
+            <ul>
+              <li>
+                What are the average covered charges vs. Medicare payments for
+                different conditions?
+              </li>
+              <li>
+                Which hospitals have the highest/lowest charges and payments?
+              </li>
+              <li>How do charges vary by state or region?</li>
+              <li>Are there disparities between urban and rural hospitals?</li>
+              <li>What's the relationship between discharges and payments?</li>
+              <li>Which conditions have the highest Medicare payments?</li>
+            </ul>
+
+            <h2>Data Analysis Process</h2>
+            <h3>Data Exploration in Google BigQuery</h3>
+            <h4>
+                Exploratory Data Analysis (EDA)
+            </h4>
+            <div class="box alt">
+              <div class="row gtr-50 gtr-uniform">
+                <div class="col-12">
+                  <div class="image-large">
+                    <span class="image fit">
+                      <img
+                        src="images/dashboards/Bigquery_medicare/EDA.png"
+                        alt="EDA"
+                      />
+                    </span>
+                  </div>
+
+                  <h4>
+                    Magnitude Analysis
+                  </h4>
+                  <div class="box alt">
+                    <div class="row gtr-50 gtr-uniform">
+                      <div class="col-12">
+                        <div class="image-large">
+                          <span class="image fit">
+                            <img
+                              src="images/dashboards/Bigquery_medicare/Magnitude.png"
+                              alt="Magnitude"
+                            />
+                          </span>
+                        </div>
+
+                <h4>
+                    Ranking Analysis
+                    </h4>
+                    <div class="box alt">
+                        <div class="row gtr-50 gtr-uniform">
+                          <div class="col-12">
+                            <div class="image-large">
+                              <span class="image fit">
+                                <img
+                                src="images/dashboards/Bigquery_medicare/Ranking_1.png"
+                                alt="ranking1"
+                                />
+                              </span>
+                            </div>
+                            <div class="box alt">
+                                <div class="row gtr-50 gtr-uniform">
+                                  <div class="col-12">
+                                    <div class="image-large">
+                                      <span class="image fit">
+                                        <img
+                                        src="images/dashboards/Bigquery_medicare/Ranking_2.png"
+                                        alt="ranking2"
+                                        />
+                                      </span>
+                                    </div>
+                      <h4>
+                        Trend Analysis
+                        </h4>
+                        <div class="box alt">
+                            <div class="row gtr-50 gtr-uniform">
+                              <div class="col-12">
+                                <div class="image-large">
+                                  <span class="image fit">
+                                    <img
+                                    src="images/dashboards/Bigquery_medicare/Trend_1.png"
+                                    alt="trend1"
+                                    />
+                                  </span>
+                                </div>
+                                <div class="box alt">
+                                    <div class="row gtr-50 gtr-uniform">
+                                      <div class="col-12">
+                                        <div class="image-large">
+                                          <span class="image fit">
+                                            <img
+                                            src="images/dashboards/Bigquery_medicare/Trend_2.png"
+                                    alt="trend2"
+                                            />
+                                          </span>
+                                        </div>
+
+                      <h4>
+                        Cumulative Analysis
+                      </h4>
+                      <div class="box alt">
+                        <div class="row gtr-50 gtr-uniform">
+                          <div class="col-12">
+                            <div class="image-large">
+                              <span class="image fit">
+                                <img
+                                  src="images/dashboards/Bigquery_medicare/Cumulative.png"
+                                  alt="Cummulative"
+                                />
+                              </span>
+                            </div>
+                            <h4>
+                                Performance Analysis
+                              </h4>
+                              <div class="box alt">
+                                <div class="row gtr-50 gtr-uniform">
+                                  <div class="col-12">
+                                    <div class="image-large">
+                                      <span class="image fit">
+                                        <img
+                                          src="images/dashboards/Bigquery_medicare/Performance.png"
+                                          alt="Performance"
+                                        />
+                                      </span>
+                                    </div>
+
+                            <h4>
+                                Part To Whole Analysis
+                                </h4>
+                                <div class="box alt">
+                                <div class="row gtr-50 gtr-uniform">
+                                    <div class="col-12">
+                                    <div class="image-large">
+                                        <span class="image fit">
+                                        <img
+                                            src="images/dashboards/Bigquery_medicare/Part2Whole.png"
+                                            alt="Part2Whole"
+                                        />
+                                        </span>
+                                    </div>
+
+                            <h4>
+                                Data Segmentation Analysis
+                                </h4>
+                                <div class="box alt">
+                                <div class="row gtr-50 gtr-uniform">
+                                    <div class="col-12">
+                                    <div class="image-large">
+                                        <span class="image fit">
+                                        <img
+                                            src="images/dashboards/Bigquery_medicare/DataSegmentation.png"
+                                            alt="Data Segmentation"
+                                        />
+                                        </span>
+                                    </div>
+        
+
+                  <ul class="actions">
+                    <li>
+                      <a
+                        href="https://console.cloud.google.com/bigquery?sq=178162007991:89ae4ffb917741e5a610f2c6caee5ba7"
+                        class="button primary"
+                        >Run query on Google Bigquery</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+
+
+            <h3>Key Findings</h3>
+            <p>Through analysis, I discovered several important insights:</p>
+            <ul>
+              <li>
+                Significant variation in charges for the same procedures across
+                different hospitals
+              </li>
+              <li>Regional disparities in Medicare payment rates</li>
+              <li>
+                Certain DRG codes showing particularly high profit margins for
+                hospitals
+              </li>
+              <li>
+                Interesting patterns in urban vs. rural hospital performance
+              </li>
+            </ul>
+
+            <h2>Tableau Visualization</h2>
+            <p>
+              To make these insights accessible, I created an interactive
+              Tableau dashboard:
+            </p>
+            <div class="box alt">
+              <div class="row gtr-50 gtr-uniform">
+                <div class="col-12">
+                  <div class="image-large">
+                    <span class="image fit">
+                      <img
+                        src="images/medicare/medicare_dashboard.png"
+                        alt="Medicare Dashboard"
+                      />
+                    </span>
+                  </div>
+                  <p>
+                    Explore the full interactive Medicare Analytics dashboard on
+                    Tableau Public:
+                  </p>
+                  <ul class="actions">
+                    <li>
+                      <a
+                        href="https://public.tableau.com/app/profile/nha.alvarado/viz/MedicareDashboard_1234567890/MedicareDashboard"
+                        class="button primary"
+                        >View on Tableau</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <h3>How the Dashboard Helps</h3>
+            <ul>
+              <li>
+                <strong>Hospitals:</strong> Benchmark performance against
+                national averages
+              </li>
+              <li>
+                <strong>Policymakers:</strong> Identify regional disparities in
+                healthcare costs
+              </li>
+              <li>
+                <strong>Analysts:</strong> Explore charge/payment relationships
+                interactively
+              </li>
+              <li>
+                <strong>Patients:</strong> Understand cost variations for
+                procedures
+              </li>
+            </ul>
+
+            <h2>Dataset</h2>
+            <p>
+              The dataset used is part of Google Cloud's Public Datasets
+              program:
+            </p>
+            <ul class="actions">
+              <li>
+                <a
+                  href="https://console.cloud.google.com/marketplace/product/cms-medicare/cms-medicare"
+                  class="button primary"
+                  >CMS Medicare Dataset</a
+                >
+              </li>
+            </ul>
+            <p>The dataset includes:</p>
+            <ul>
+              <li>Hospital provider details and locations</li>
+              <li>DRG (Diagnosis Related Group) definitions</li>
+              <li>Average covered charges and Medicare payments</li>
+              <li>Total discharge information</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>
+              This project demonstrated how data analytics can uncover
+              significant opportunities for improving healthcare efficiency and
+              cost management. By analyzing Medicare inpatient charges at scale
+              using Google BigQuery and visualizing the findings in Tableau, I
+              identified actionable insights that could help hospitals optimize
+              their financial performance while ensuring fair access to care.
+              The analysis also revealed important regional disparities that
+              policymakers could address to improve healthcare equity
+              nationwide.
+            </p>
+            <p>
+              The skills developed in this project - working with large
+              healthcare datasets, advanced SQL analysis in BigQuery, and
+              creating impactful visualizations - are directly applicable to
+              many healthcare analytics roles.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="inner">
+          <ul class="icons">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/nhadalvarado/"
+                class="icon brands alt fa-linkedin-in"
+                ><span class="label">LinkedIn</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/NhaDAlvarado"
+                class="icon brands alt fa-github"
+                ><span class="label">GitHub</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://public.tableau.com/app/profile/nha.alvarado/vizzes"
+                class="icon solid alt fa-chart-bar"
+                ><span class="label">Tableau</span></a
+              >
+            </li>
+          </ul>
+          <ul class="copyright">
+            <li>&copy; Nha D Alvarado</li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
