@@ -1,0 +1,1103 @@
+<!--
+  Cyclistic Bike-Share Analysis - Nha's Portfolio
+-->
+<html>
+  <head>
+    <title>Cyclistic Analysis - Nha's Portfolio</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo"
+          ><strong>Data Analyst Portfolio</strong>
+          <span>by Nha D Alvarado</span></a
+        >
+        <nav>
+          <a href="#menu">Menu</a>
+        </nav>
+      </header>
+
+      <!-- Menu -->
+      <nav id="menu">
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="actions stacked">
+          <li>
+            <a href="#projects" class="button primary fit">View Projects</a>
+          </li>
+          <li><a href="#contact" class="button fit">Contact Me</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Project Content -->
+        <section id="project-content">
+          <div class="inner">
+            <header class="major">
+              <h1>🚴 Cyclistic Bike-Share Analysis</h1>
+            </header>
+
+            <div class="deliverable-box">
+              <h1>1. Scenerio</h1>
+              <ul>
+                <li>
+                  Launched in 2016, Cyclistic has expanded to 5,824 geotracked
+                  bikes across 692 Chicago stations, offering flexible
+                  point-to-point rentals. Its pricing includes single-ride/day
+                  passes (casual riders) and annual memberships (members).
+                </li>
+                <li>
+                  Finance data reveals annual members are significantly more
+                  profitable than casual riders. While flexible pricing attracts
+                  users, Marketing Director Lily Moreno sees greater potential
+                  in converting existing casual riders—who already use and trust
+                  Cyclistic—into members.
+                </li>
+                <li>
+                  As a Junior Data Analyst on Cyclistic’s marketing team, your
+                  mission is to uncover behavioral differences between casual
+                  riders and annual members of this Chicago-based bike-share
+                  program. With leadership prioritizing membership growth, your
+                  data-driven insights will directly shape conversion
+                  strategies—but executive approval hinges on rigorous analysis
+                  and persuasive visual storytelling.
+                </li>
+              </ul>
+            <!-- </div>
+            <div class="deliverable-box"> -->
+              <h3>Business Task</h3>
+              <p>
+                Analyze usage patterns between annual members and casual riders
+                to identify key behavioral differences that inform conversion
+                strategies.
+              </p>
+            </div>
+
+            <!-- Deliverable 2: Data Sources -->
+            <div class="deliverable-box">
+              <h1>2. Data Sources</h1>
+              <ul>
+                <li>
+                  The analysis leverages 13 months of Cyclistic's ride-share
+                  data (April 2024-April 2025), comprising over 5.8 million
+                  trips across 692 Chicago stations.
+                </li>
+                <li>
+                  This dataset, made available through Motivate International
+                  Inc.'s public data program, under
+                  <a
+                    href="https://divvybikes.com/data-license-agreement"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >this license</a
+                  >
+                  , stored in standardized CSV formats for analysis.
+                </li>
+              </ul>
+              <div class="box alt">
+                <div class="row gtr-50 gtr-uniform">
+                  <div class="col-6">
+                    <span
+                      class="image fit"
+                      style="max-width: 300px; margin: 0 auto"
+                    >
+                      <img
+                        src="images/Cyclistic/result_images/list_tables_1.png"
+                        alt="list of tables"
+                      />
+                    </span>
+                  </div>
+                  
+                  <div class="col-6">
+                    <span
+                      class="image fit"
+                      style="max-width: 300px; margin: 0 auto"
+                    >
+                      <img
+                        src="images/Cyclistic/result_images/list_tables_2.png"
+                        alt="list of tables 2"
+                      />
+                    </span>
+                  </div>
+                  
+                </div>
+                <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 1: List of tables from 04/2024 to 04/2025
+                          </p>
+              </div>
+              <h4>Data includes:</h4>
+              <ul>
+                <li>ride_id</li>
+                <li>rideable_type: classic, docked, electric</li>
+                <li>started_at: trip start day and time</li>
+                <li>ended_at: trip end day and time</li>
+                <li>start_station_name</li>
+                <li>start_station_id</li>
+                <li>end_station_name</li>
+                <li>end_station_id</li>
+                <li>start_lat : start station latitude</li>
+                <li>start_lng : start station longitude</li>
+                <li>end_lat : end station latitude</li>
+                <li>end_lng : end station longitude</li>
+              </ul>
+            </div>
+
+
+            <div class="deliverable-box">
+              <h1>3. Data Cleaning & Preparation</h1>
+              <h3>Upload files to Google BigQuery</h3>
+              <ul>
+                <li>
+                  To efficiently analyze the large dataset (approximately 6
+                  million records), I implemented a scalable solution using
+                  Google BigQuery and SQL for data cleaning, manipulation, and
+                  analysis.
+                </li>
+                <li>
+                  Due to file size constraints (some exceeding 100MB), I first
+                  preprocessed the data by dividing these files into smaller
+                  segments using Python, as shown in the script below.
+                </li>
+              </ul>
+              <div class="box alt">
+                <div class="row gtr-50 gtr-uniform">
+                  <div class="col-12">
+                    <div class="image-large">
+                      <span
+                        class="image fit"
+                        style="max-width: 600px; margin: 0 auto"
+                      >
+                        <img
+                          src="images/Cyclistic/result_images/python.png"
+                          alt="python"
+                        />
+                      </span>
+                    </div>
+                    <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 2: Python Script to divide large files into smaller segments 
+                          </p>
+                  </div>
+                </div>
+              </div>
+
+              <h3>Union all tables</h3>
+              <ul>
+                <li>
+                  After uploading all files to Google BigQuery, I consolidated
+                  the datasets using <strong>UNION ALL</strong> to enable
+                  comprehensive analysis.
+                </li>
+                <li>
+                  The following query merges all source tables into a temporary
+                  table <strong>combine_tables</strong> using
+                  <strong>UNION ALL</strong>:
+                </li>
+              </ul>
+              <div class="box alt">
+                <div class="row gtr-50 gtr-uniform">
+                  <div class="col-12">
+                    <div class="image-large">
+                      <span
+                        class="image fit"
+                        style="max-width: 600px; margin: 0 auto"
+                      >
+                        <img
+                          src="images/Cyclistic/result_images/union_all_query.png"
+                          alt="union
+                        "
+                        />
+                      </span>
+                      <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 3: SQL query to union all tables
+                          </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h3>Add columns</h3>
+              <ul>
+                <li>
+                  To analyze trip durations, I derived a new
+                  <strong>ride_duration_in_mins</strong> metric by computing the
+                  time difference between <strong>ended_at</strong> and
+                  <strong>started_at</strong> timestamps, converted to minutes.
+                </li>
+                <li>
+                  The new <strong>wk_days</strong> column (1-7 representing
+                  Sunday-Saturday) revealed meaningful usage patterns across
+                  different weekdays.
+                </li>
+                <li>
+                  Finally, I created a <strong>quarter</strong> field to enable
+                  seasonal trend analysis.
+                </li>
+                <li>
+                  Save result into a temporary table name
+                  <strong>add_extra_col</strong>
+                </li>
+              </ul>
+              <div class="box alt">
+                <div class="row gtr-50 gtr-uniform">
+                  <div class="col-12">
+                    <div class="image-large">
+                      <span
+                        class="image fit"
+                        style="max-width: 600px; margin: 0 auto"
+                      >
+                        <img
+                          src="images/Cyclistic/result_images/add_columns.png"
+                          alt="add_columns"
+                        />
+                      </span>
+                      <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 4: SQL query to add extra columns
+                          </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h3>Data Cleaning</h3>
+              <ul>
+                <li>
+                  I used <strong>case-when</strong> to transform
+                  <strong>wk_days</strong> from number (1-7) to (Sun-Sat)
+                </li>
+                <li>Check and filter null value</li>
+                <li>
+                  Save result into a temporary table name
+                  <strong>clean_table</strong>
+                </li>
+              </ul>
+              <div class="box alt">
+                <div class="row gtr-50 gtr-uniform">
+                  <div class="col-12">
+                    <div class="image-large">
+                      <span
+                        class="image fit"
+                        style="max-width: 500px; margin: 0 auto"
+                      >
+                        <img
+                          src="images/Cyclistic/result_images/case_when.png"
+                          alt="case_when"
+                        />
+                      </span>
+                      <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 5: SQL query to clean data
+                          </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Deliverable 4: Analysis Summary -->
+              <div class="deliverable-box">
+                <h1>4. Analysis Summary</h1>
+                <div class="analysis-grid">
+                  <div class="analysis-item">
+                    <h3>Usage Patterns</h3>
+                    <ul>
+                      <li>
+                        Strong weekday <strong>member</strong> usage suggests
+                        subscription-based commuting
+                      </li>
+                      <li>
+                        Weekend <strong>casual</strong> peaks align with
+                        leisure/recreational use
+                      </li>
+                      <li>
+                        Weekdays (Mon-Fri) show significantly higher
+                        <strong>member</strong> usage (all >63%)
+                      </li>
+                      <li>Weekends (Sat-Sun) see more balanced ratios</li>
+
+                      <h4>Strategy:</h4>
+                      <ul>
+                        <li>
+                          Target frequent weekend casual riders with membership
+                          incentives
+                        </li>
+                        <li>
+                          Weekend pricing/promotions could optimize
+                          casual-to-member conversion
+                        </li>
+                        <li>
+                          Balance bike availability for weekday commuter peaks
+                        </li>
+                      </ul>
+                    </ul>
+
+                    <div class="box alt">
+                      <div class="row gtr-50 gtr-uniform">
+                        <div class="col-12">
+                          <div class="image-large">
+                            <span
+                              class="image fit"
+                              style="max-width: 600px; margin: 0 auto"
+                            >
+                              <img
+                                src="images/Cyclistic/result_images/dow_ride_query.png"
+                                alt="dow_query"
+                              />
+                            </span>
+                            <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 6: SQL query to see how uesage patterns during a week
+                          </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="box alt">
+                      <div
+                        class="row gtr-50 gtr-uniform"
+                        style="display: flex; align-items: stretch"
+                      >
+                        <div class="col-6" style="display: flex">
+                          <img
+                            src="images/Cyclistic/result_images/dow_ride.png"
+                            alt="Dow resule"
+                            style="width: 100%; object-fit: contain"
+                          />
+                        </div>
+                        
+                        <div class="col-6" style="display: flex">
+                          <img
+                            src="images/Cyclistic/result_images/dow.png"
+                            alt="tableau"
+                            style="width: 100%; object-fit: contain"
+                          />
+                        </div>
+                      </div>
+                      <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 7: Usage patterns result and chart
+
+                    </div>
+                  </div>
+
+                  <div class="analysis-item">
+                    <h3>Usage trend in a day</h3>
+                    <ul>
+                      <li>
+                        <strong>Member</strong> show stronger commuter peaks (7-9 AM and 4-6 PM)
+                      </li>
+                      <li>
+                        <strong>Casual</strong> peaks align with ridership remains higher than members between 10 AM-3 PM
+                      </li>
+                      <li><Strong>Casual Rider</Strong> Daily Patterns
+                      <ul>
+                      <li>
+                        Morning (8-10 AM): Moderate usage (~150K rides) - likely leisure activities/tourists
+                      </li>
+                      <li>Afternoon (12-4 PM): Strong peak (~250-350K rides) - suggests lunch outings and daytime exploration</li>
+                      <li>Evening (5-7 PM): Secondary peak (~200K rides) - possibly dinner/entertainment trips</li>
+                      </ul>
+
+                      <h4>Strategy:</h4>
+                      <ul>
+                        <li>
+                          Partner with cafes: "Show 5 morning rides, get free coffee + membership discount"
+                        </li>
+                        <li>
+                          Team with restaurants/bars: "Dinner special: Show bike receipt, get 10% off meal + 20% off annual membership"
+                        </li>
+                        <li>
+                          For casuals making regular 8 AM rides: "Your morning routine could save $X/month as a member"
+                        </li>
+                      </ul>
+                    </ul>
+
+                    <div class="box alt">
+                      <div class="row gtr-50 gtr-uniform">
+                        <div class="col-12">
+                          <div class="image-large">
+                            <span
+                              class="image fit"
+                              style="max-width: 600px; margin: 0 auto"
+                            >
+                              <img
+                                src="images/Cyclistic/result_images/Trending_time_in_day.png"
+                                alt="Trending time in day"
+                              />
+                            </span>
+                            <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 8: Trending time in a day
+                          </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    </div>
+                  </div>
+
+                  <div class="analysis-item">
+                    <h3>Ride Duration</h3>
+                    <ul>
+                      <li>
+                        <strong>Casual</strong> riders consistently show longer
+                        average ride durations than members across all days
+                      </li>
+                      <li>
+                        <strong>Members</strong> likely use bikes for short,
+                        predictable commutes (consistent 11-min weekday rides)
+                      </li>
+                      <li>
+                        <strong>Casual</strong> riders exhibit leisure-oriented
+                        usage (longer weekend rides)
+                      </li>
+                      <h4>Pricing Strategy:</h4>
+                      <ul>
+                        <li>
+                          Casual riders' longer durations make them more
+                          sensitive to per-minute charges
+                        </li>
+                        <li>
+                          Opportunity: "Upgrade to membership and ride longer
+                          for less" campaigns
+                        </li>
+                        <li>
+                          Target casual weekend users with membership promotions
+                          highlighting:
+                        </li>
+                        <ul>
+                          <li>Cost savings for frequent/longer rides</li>
+                          <li>Convenience for recreational use</li>
+                        </ul>
+                      </ul>
+                    </ul>
+
+                    <div class="box alt">
+                      <div class="row gtr-50 gtr-uniform">
+                        <div class="col-12">
+                          <div class="image-large">
+                            <span
+                              class="image fit"
+                              style="max-width: 600px; margin: 0 auto"
+                            >
+                              <img
+                                src="images/Cyclistic/result_images/avg_ride_duration_query.png"
+                                alt="avg_duration_query"
+                              />
+                            </span>
+                            <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 9: Ride duration query
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="box alt">
+                      <div
+                        class="row gtr-50 gtr-uniform"
+                        style="display: flex; align-items: stretch"
+                      >
+                        <div class="col-6" style="display: flex">
+                          <img
+                            src="images/Cyclistic/result_images/avg_ride_duration.png"
+                            alt="avg_duration"
+                            style="width: 100%; object-fit: contain"
+                          />
+                        </div>
+                        <div class="col-6" style="display: flex">
+                          <img
+                            src="images/Cyclistic/result_images/avg_duration.png"
+                            alt="tableau"
+                            style="width: 100%; object-fit: contain"
+                          />
+                        </div>
+                      </div>
+                      <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 10: Ride duration query result and chart
+                    </div>
+                  </div>
+
+                  <div class="analysis-item">
+                    <h3>Bike Types</h3>
+                    <ul>
+                      <p>
+                        <strong>Electric Scooters</strong> have highest
+                        <strong>casual</strong> rider share (40.96%)
+                      </p>
+                      <h4>Recommendations:</h4>
+                      <li>"Unlimited e-bike access" campaign</li>
+                      <ul>
+                        <li>
+                          Highlight electric bikes' speed/effort savings in
+                          marketing
+                        </li>
+                        <li>
+                          Offer free e-bike upgrades for first 5 member rides
+                        </li>
+                      </ul>
+                      <li>Target casual scooter users with:</li>
+                      <ul>
+                        <li>30-min free member trial on scooters</li>
+                        <li>
+                          "Scooter Weekends" promo (discounted member access
+                          Sat-Sun)
+                        </li>
+                      </ul>
+                    </ul>
+
+                    <div class="box alt">
+                      <div
+                        class="row gtr-50 gtr-uniform"
+                        style="display: flex; align-items: stretch"
+                      >
+                        <div class="col-6" style="display: flex">
+                          <img
+                            src="images/Cyclistic/result_images/rideable_type_query.png"
+                            alt="rideable_query"
+                            style="width: 100%; object-fit: contain"
+                          />
+                        </div>
+                        <div class="col-6" style="display: flex">
+                          <img
+                            src="images/Cyclistic/result_images/rideable_type.png"
+                            alt="rideable"
+                            style="width: 100%; object-fit: contain"
+                          />
+                        </div>
+                      </div>
+                      <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 11: Bike type query and result
+                    </div>
+                    <div class="box alt">
+                      <div class="row gtr-50 gtr-uniform">
+                        <div class="col-12">
+                          <div class="image-large">
+                            <span
+                              class="image fit"
+                              style="max-width: 500px; margin: 0 auto"
+                            >
+                              <img
+                                src="images/Cyclistic/result_images/rideable_type_chart.png"
+                                alt="tableau"
+                              />
+                            </span>
+                            <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 12: Bike type chart
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="analysis-item">
+                    <h3>Seasonal Trends</h3>
+                    <ul>
+                      <li>
+                        Casual riders are highly weather-dependent, with a ~20%
+                        swing between peak (Q3) and off-peak (Q1)
+                      </li>
+                      <li>Highest Casual Ridership:</li>
+                      <ul>
+                        <li>
+                          Q3 (Summer): 42.37% of rides (peak leisure season)
+                        </li>
+                        <li>
+                          Q2 (Spring): 29.41% (rising temperatures, outdoor
+                          activity)
+                        </li>
+                      </ul>
+                      <li>Lowest Casual Ridership:</li>
+                      <ul>
+                        <li>
+                          Q1 (Winter): 23.40% (cold weather reduces demand)
+                        </li>
+                        <li>
+                          Q4 (Fall): 38.26% (declines after summer but still
+                          significant)
+                        </li>
+                      </ul>
+
+                      <h4>Recommendations:</h4>
+                      <ul>
+                        <li>
+                          Summer (Q3): Best time to upsell memberships (riders
+                          are active & engaged).
+                        </li>
+                        <ul>
+                          <li>
+                            Tactic: "Unlimited Summer Pass" (June–August,
+                            discounted rate).
+                          </li>
+                        </ul>
+                        <li>
+                          Spring (Q2): Target casual riders early before peak
+                          season.
+                        </li>
+                        <ul>
+                          <li>
+                            Tactic: "Early Bird Membership" (sign up in April,
+                            get bonus ride credits).
+                          </li>
+                        </ul>
+                        <li>Winter (Q1): Incentivize continued usage.</li>
+                        <ul>
+                          <li>
+                            Tactic: "Winter Warrior Challenge" (5 rides in
+                            January = free month).
+                          </li>
+                        </ul>
+                        <li>Fall (Q4): Prevent drop-off post-summer.</li>
+                        <ul>
+                          <li>
+                            Tactic: "Fall into Savings" (discounted membership
+                            rollover).
+                          </li>
+                        </ul>
+                      </ul>
+                    </ul>
+
+                    <div class="box alt">
+                      <div
+                        class="row gtr-50 gtr-uniform"
+                        style="display: flex; align-items: stretch"
+                      >
+                        <div class="col-6" style="display: flex">
+                          <img
+                            src="images/Cyclistic/result_images/quarter_rides_query.png"
+                            alt="quarter_rides_query"
+                            style="width: 100%; object-fit: contain"
+                          />
+                        </div>
+                        <div class="col-6" style="display: flex">
+                          <img
+                            src="images/Cyclistic/result_images/quarter_rides.png"
+                            alt="quarter_rides"
+                            style="width: 100%; object-fit: contain"
+                          />
+                        </div>
+                        
+                      </div>
+                      <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 13: Seasonal trend query and result
+                    </div>
+                    <div class="box alt">
+                      <div class="row gtr-50 gtr-uniform">
+                        <div class="col-12">
+                          <div class="image-large">
+                            <span
+                              class="image fit"
+                              style="max-width: 500px; margin: 0 auto"
+                            >
+                              <img
+                                src="images/Cyclistic/result_images/quarter.png"
+                                alt="tableau"
+                              />
+                            </span>
+                            <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 14: Seasonal trend chart
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  
+
+                  <div class="analysis-item">
+                    <h3>Location</h3>
+                    <div class="box alt">
+                      <div
+                        class="row gtr-50 gtr-uniform"
+                        style="display: flex; align-items: stretch"
+                      >
+                        <div class="col-6" style="display: flex">
+                          <img
+                            src="images/Cyclistic/result_images/top_10_routes_query.png"
+                            alt="top_10_routes_query"
+                            style="width: 100%; object-fit: contain"
+                          />
+                        </div>
+                        <div class="col-6" style="display: flex">
+                          <img
+                            src="images/Cyclistic/result_images/top_10_routes.png"
+                            alt="top_10_routes"
+                            style="width: 100%; object-fit: contain"
+                          />
+                        </div>
+                        
+                      </div>
+                      <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 15: Query to get top 10 Start and End Stations
+                    </div>
+
+                    <div class="box alt">
+                      <div
+                        class="row gtr-50 gtr-uniform"
+                        style="display: flex; align-items: stretch"
+                      >
+                        <!-- Member Routes Image with Caption -->
+                        <div
+                          class="col-6"
+                          style="
+                            display: flex;
+                            flex-direction: column;
+                            padding: 0;
+                          "
+                        >
+                          <div style="flex: 1; display: flex; overflow: hidden">
+                            <img
+                              src="images/Cyclistic/result_images/member_routes.png"
+                              alt="Member Star Stations Heatmap"
+                              style="
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                              "
+                            />
+                          </div>
+                          <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 16: Member Start Stations Heatmap
+                          </p>
+                        </div>
+
+                        <!-- Casual Routes Image with Caption -->
+                        <div
+                          class="col-6"
+                          style="
+                            display: flex;
+                            flex-direction: column;
+                            padding: 0;
+                          "
+                        >
+                          <div style="flex: 1; display: flex; overflow: hidden">
+                            <img
+                              src="images/Cyclistic/result_images/casual_routes.png"
+                              alt="Casual Start Stations Heatmap"
+                              style="
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                              "
+                            />
+                          </div>
+                          <p
+                            style="
+                              text-align: center;
+                              margin: 10px 0 0;
+                              font-size: 0.9em;
+                              font-weight: bold;
+                            "
+                          >
+                            Fig 17: Casual Start Stations Heatmap
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <ul>
+                        <li><strong>Member </strong> exhibit a widely distributed network of start stations, covering suburban areas such as Barrington, Schaumburg, Naperville, and Wheaton, as well as transit-linked hubs like Arlington Heights and Glenview.</li>
+                        <li>This spread suggests that <strong>member </strong> use bike-share as part of their daily commuting routines, integrating it with other transportation modes across a broad geographic area.</li>
+                        <li><strong>Casual</strong> show highly concentrated usage at select stations, primarily in leisure and tourist-heavy zones like Park Ridge, Glenview, and Wilmette (near the Botanic Garden). </li>
+                        <li><strong>Casual</strong> ridership is clustered around recreational hotspots rather than dispersed across commuter routes.</li>
+                        <h4>Recommendations</h4>
+                        <li>Target: Casual riders in Park Ridge/Glenview (near member-heavy zones)</li>
+                        <ul>
+                            <li>"Your weekend rides could cover your commute! Try a 1-month membership trial."</li>
+                            <li>Partner with Metra: "Show train pass, get 20% off bike membership."</li>
+                        </ul>
+                    </ul>
+
+                    <div class="box alt">
+  <div class="row gtr-50 gtr-uniform" style="display: flex; align-items: stretch; gap: 0;">
+    
+    <!-- First Image with Caption -->
+    <div class="col-6" style="display: flex; flex-direction: column; padding: 0;">
+      <div style="flex: 1; display: flex; border-right: 1px solid transparent;"> <!-- Invisible divider -->
+        <img
+          src="images/Cyclistic/result_images/top_10_start_station.png"
+          alt="Top 10 Start Stations"
+          style="width: 100%; height: 100%; object-fit: contain;"
+        />
+      </div>
+      <p style="text-align: center; margin: 10px 0 0; font-size: 0.9em; font-weight: bold;">
+        Fig 18: Casual Riders' Top 10 Start Stations
+      </p>
+    </div>
+    
+    <!-- Second Image with Caption -->
+    <div class="col-6" style="display: flex; flex-direction: column; padding: 0;">
+      <div style="flex: 1; display: flex; border-left: 1px solid transparent;"> <!-- Mirror invisible divider -->
+        <img
+          src="images/Cyclistic/result_images/top_10_end_station.png"
+          alt="Top 10 End Stations"
+          style="width: 100%; height:100%; object-fit: contain;"
+        />
+      </div>
+      <p style="text-align: center; margin: 10px 0 0; font-size: 0.9em; font-weight: bold;">
+        Fig 19: Casual Riders' Top 10 End Stations
+      </p>
+    </div>
+
+    <ul>
+        <li>Based on the top 10 start/end stations for casual riders, we can identify key behavioral patterns and design targeted conversion strategies:</li>
+        <ul>
+            <li>Key Stations:</li>
+            <ul>
+                <li>Streeter Dr & Grand Ave (Top start/end)</li>
+                <li>DuSable Lake Shore Dr (High start/end volume)</li>
+                <li>Millennium Park (Popular destination)</li>
+            </ul>
+            <h4>Recommendations</h4>
+            <li>Partner with nearby attractions (Navy Pier, museums) to offer:</li>
+            <ul>
+                <li>"Explore More" Membership: Discounted admission + unlimited rides</li>
+                <li>Weekend Pass Upgrade: "Get 3 days of rides for the price of 2"</li>
+                <li>App Notifications: "You’ve started 10+ rides at [Station]. Upgrade to save 30%!"</li>
+                <li>Kiosk Promotions: QR codes at docks: "Scan to unlock member rates"</li>
+            </ul>
+        </ul>
+
+    </ul>
+
+  </div>
+</div>
+                  
+
+
+              </div>
+            </div>
+
+            <!-- Deliverable 5: Visualizations -->
+            <div class="deliverable-box">
+  <h1>5. Key Findings</h1>
+  
+  <div class="findings-container">
+    <div class="finding-section">
+      <h3>Usage Patterns</h3>
+      <ul>
+        <li><strong>Members</strong> show consistent weekday usage (7-9 AM and 4-6 PM peaks) for work commutes</li>
+        <li><strong>Casual riders</strong> peak on weekends and midday (12-4 PM) for leisure activities</li>
+      </ul>
+    </div>
+
+    <div class="finding-section">
+      <h3>Ride Duration</h3>
+      <ul>
+        <li><strong>Members</strong> average 11-12 minute rides (short, efficient trips)</li>
+        <li><strong>Casual riders</strong> take significantly longer rides (21-28 minutes) suggesting recreational use</li>
+      </ul>
+    </div>
+
+    <div class="finding-section">
+      <h3>Seasonal Trends</h3>
+      <ul>
+        <li><strong>Casual ridership spikes 20% in summer (Q3)</strong> compared to winter lows</li>
+        <li>Member usage remains steady year-round</li>
+      </ul>
+    </div>
+
+    <div class="finding-section">
+      <h3>Geographic Behavior</h3>
+      <ul>
+        <li><strong>Members</strong> are spread across suburban/transit hubs</li>
+        <li><strong>Casual riders</strong> cluster at tourist/recreational areas</li>
+      </ul>
+    </div>
+  </div>
+
+            <!-- Deliverable 6: Recommendations -->
+            <div class="deliverable-box highlight-box">
+              <h1>6. Top Recommendations</h1>
+              <div class="recommendations">
+      <ol>
+        <li>Weekend-focused membership trials for casual riders</li>
+        <li>Afternoon explorer programs (12-4 PM flat-rate packages)</li>
+        <li>Tourist attraction partnerships with membership bundles</li>
+        <li>Commuter-match pricing for casuals making regular morning rides</li>
+        <li>Long-ride rewards program</li>
+      </ol>
+    </div>
+              </div>
+            </div>
+
+            <!-- Technical Details -->
+            <div class="cta-box">
+              <h2>🔍 Explore the Full Analysis</h2>
+              <ul class="actions">
+                <li>
+                  <a href="https://console.cloud.google.com/bigquery?sq=178162007991:43e2420cceec48f3894e2ae01430a932" class="button">
+  <img src="https://www.gstatic.com/devrel-devsite/prod/vc8928e4803ba00823d2deb39c327db4919db629f1ecb648b587b35b95297bc3f/bigquery/images/favicon.ico" 
+       alt="BigQuery Logo" 
+       style="height: 1em; vertical-align: middle; margin-right: 0.5em;">
+  View Analysis Code 
+</a>
+                </li>
+                <li>
+                  <a href="https://public.tableau.com/app/profile/nha.alvarado/vizzes" class="button icon solid fa-chart-line"
+                    >Interactive Dashboard</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="inner">
+          <ul class="icons">
+            <li>
+              <a href="https://www.linkedin.com/in/nhadalvarado/" class="icon brands alt fa-linkedin-in"
+                ><span class="label">LinkedIn</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/NhaDAlvarado" class="icon brands alt fa-github"
+                ><span class="label">GitHub</span></a
+              >
+            </li>
+            <li>
+              <a href="https://public.tableau.com/app/profile/nha.alvarado/vizzes" class="icon solid alt fa-chart-bar"
+                ><span class="label">Tableau</span></a
+              >
+            </li>
+          </ul>
+          <ul class="copyright">
+            <li>&copy; Nha D Alvarado</li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
